@@ -1,0 +1,21 @@
+# Godot-specific
+.import/
+.export/
+*.translation
+
+# Godot 4
+.godot/
+/andriod/
+
+# Mono / C#
+.mono/
+data_*/
+bin/
+obj/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
