@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hgwtf338vw63" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Fall.png" id="3_qjltp"]
 [ext_resource type="Texture2D" uid="uid://dmi3ec8emc1i7" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_JumpFallInbetween.png" id="4_tx4h3"]
 [ext_resource type="Texture2D" uid="uid://bovhp7evefytr" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Jump.png" id="5_xxi7b"]
+[ext_resource type="Texture2D" uid="uid://cdctrys7ty46g" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_TurnAround.png" id="7_tx4h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crmmm"]
 atlas = ExtResource("1_8xdvd")
@@ -119,6 +120,18 @@ region = Rect2(960, 0, 120, 80)
 atlas = ExtResource("3_5hlso")
 region = Rect2(1080, 0, 120, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy201"]
+atlas = ExtResource("7_tx4h3")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoa27"]
+atlas = ExtResource("7_tx4h3")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fevyn"]
+atlas = ExtResource("7_tx4h3")
+region = Rect2(240, 0, 120, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wxk8f"]
 animations = [{
 "frames": [{
@@ -229,23 +242,37 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy201")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoa27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fevyn")
+}],
+"loop": true,
+"name": &"turn",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uddgr"]
 radius = 8.0
 
 [node name="Main" type="CharacterBody2D" unique_id=1670504212]
+position = Vector2(1, 0)
+collision_mask = 3
 script = ExtResource("1_crmmm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=232265381]
 position = Vector2(5, -38)
 scale = Vector2(0.98333335, 0.95)
 sprite_frames = SubResource("SpriteFrames_wxk8f")
-animation = &"jump_peak"
+animation = &"idle_temp"
 autoplay = "idle_temp"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056125592]
-position = Vector2(0, -15)
+position = Vector2(3, -16)
 shape = SubResource("CapsuleShape2D_uddgr")
