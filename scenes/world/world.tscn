@@ -4,37 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://sxt026i1j2it" path="res://scenes/entities/player_temp.tscn" id="1_dphjl"]
 [ext_resource type="PackedScene" uid="uid://fbkypssd6kr3" path="res://scenes/world/room_1_temp.tscn" id="2_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://diqrngpo1psil" path="res://scenes/world/tempstroll.tscn" id="4_v5dby"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
-size = Vector2(96, 13)
+[ext_resource type="PackedScene" uid="uid://cp3t28vtllldm" path="res://scenes/menus/pause.tscn" id="5_v5dby"]
 
 [node name="world" type="Node2D" unique_id=1735737902]
-position = Vector2(-1, 0)
 script = ExtResource("1_6m72w")
 
 [node name="Main" parent="." unique_id=1670504212 instance=ExtResource("1_dphjl")]
-position = Vector2(-115, -40)
+position = Vector2(62, -20)
 
-[node name="Camera2D" type="Camera2D" parent="Main" unique_id=921748653]
+[node name="Camera2D" type="Camera2D" parent="Main" unique_id=222489030]
 position = Vector2(1, -11)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1155276137]
-position = Vector2(33, -4)
+[node name="scroll" parent="." unique_id=1165597522 instance=ExtResource("4_v5dby")]
+position = Vector2(-19, 83)
+
+[node name="Pause" parent="." unique_id=1063596969 instance=ExtResource("5_v5dby")]
+anchors_preset = -1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -116.0
+offset_top = -66.0
+offset_right = -116.0
+offset_bottom = -66.0
 
 [node name="Room 1 temp" parent="." unique_id=164205513 instance=ExtResource("2_sl2e5")]
-position = Vector2(-35, 6)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=299084997]
-position = Vector2(190, -21)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1644410876]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_t5ptc")
-
-[node name="scroll" parent="." unique_id=1165597522 instance=ExtResource("4_v5dby")]
-position = Vector2(-124, 22)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+position = Vector2(147, -1)

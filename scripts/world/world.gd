@@ -1,7 +1,5 @@
 extends Node2D
 
-
-@onready var area_2d: Area2D = $Area2D
 @onready var scroll: Node2D = $scroll
 
 
