@@ -81,6 +81,7 @@ grow_vertical = 2
 script = ExtResource("1_q52mi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=917529557]
+layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2001145335]
 process_mode = 3
@@ -94,6 +95,7 @@ offset_right = 3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=439685147]
 process_mode = 2
@@ -109,10 +111,12 @@ offset_right = 143.5
 offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1611167333]
 process_mode = 3
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 40
 alignment = 1
 
@@ -123,6 +127,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
+mouse_filter = 2
 text = "Resume"
 expand_icon = true
 
@@ -132,6 +137,7 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 text = "Tutorial"
 
 [node name="Quit" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=967894007]
@@ -140,6 +146,7 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1962353177]
