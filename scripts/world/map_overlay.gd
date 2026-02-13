@@ -5,13 +5,12 @@ extends Control
 @onready var roomr1c3: Button = $MapOverlayCanvas/page1/R1C3
 @onready var roomr1c4: Button = $MapOverlayCanvas/page2/R1C4
 @onready var roomr1c5: Button = $MapOverlayCanvas/page2/R1C5
-@onready var roomr1c6: Button = $MapOverlayCanvas/page2/R1C6
 @onready var roomr2c1: Button = $MapOverlayCanvas/page1/R2C1
 @onready var roomr2c2: Button = $MapOverlayCanvas/page1/R2C2
 @onready var roomr2c3: Button = $MapOverlayCanvas/page1/R2C3
 @onready var roomr2c4: Button = $MapOverlayCanvas/page2/R2C4
 @onready var roomr2c5: Button = $MapOverlayCanvas/page2/R2C5
-@onready var roomr2c6: Button = $MapOverlayCanvas/page2/R2C6
+@onready var boss: Button = $MapOverlayCanvas/page3/boss
 @onready var left: Button = $MapOverlayCanvas/HBoxContainer/left
 @onready var right: Button = $MapOverlayCanvas/HBoxContainer/right
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -57,10 +56,6 @@ func _on_r_1c_5_pressed() -> void:
 	if enabled:
 		roomr1c5.disabled = true
 		map_layout.setChunk(1,5)
-func _on_r_1c_6_pressed() -> void:
-	if enabled:
-		roomr1c6.disabled = true
-		map_layout.setChunk(1,6)
 func _on_r_2c_1_pressed() -> void:
 	if enabled:
 		roomr2c1.disabled = true
@@ -81,10 +76,11 @@ func _on_r_2c_5_pressed() -> void:
 	if enabled:
 		roomr2c5.disabled = true
 		map_layout.setChunk(2,5)
-func _on_r_2c_6_pressed() -> void:
+func _on_boss_pressed() -> void:
 	if enabled:
-		roomr2c6.disabled = true
-		map_layout.setChunk(2,6)
+		boss.disabled=true
+		map_layout.setBoss()
+	
 
 func _page_left() -> void:
 	if enabled:
