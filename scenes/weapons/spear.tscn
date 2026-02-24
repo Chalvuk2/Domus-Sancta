@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmq2toxaf3jnh"]
+
+[ext_resource type="PackedScene" uid="uid://bw3b7bhbdax3b" path="res://scenes/weapons/weapon_base.tscn" id="1_8fn8c"]
+[ext_resource type="Script" uid="uid://di62drjbfsf8d" path="res://scripts/weapons/spear.gd" id="2_f4mc5"]
+
+[sub_resource type="Animation" id="Animation_f4mc5"]
+resource_name = "stab"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_osdwm"]
+_data = {
+&"stab": SubResource("Animation_f4mc5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4mc5"]
+size = Vector2(44.5, 17)
+
+[node name="spear" instance=ExtResource("1_8fn8c")]
+script = ExtResource("2_f4mc5")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_osdwm")
+}
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(6.75, -17)
+shape = SubResource("RectangleShape2D_f4mc5")

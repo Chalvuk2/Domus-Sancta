@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b648knhwctri4"]
+
+[ext_resource type="Script" uid="uid://l7ugvbcvcr2u" path="res://scripts/entities/bat.gd" id="1_1v8uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v8uf"]
+size = Vector2(20, 17)
+
+[node name="Bat" type="CharacterBody2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_1v8uf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1v8uf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://pem1b65bhyov"]
+
+[ext_resource type="PackedScene" uid="uid://bw3b7bhbdax3b" path="res://scenes/weapons/weapon_base.tscn" id="1_b37dg"]
+[ext_resource type="Script" uid="uid://q8b1nv507nhe" path="res://scripts/weapons/hammer.gd" id="2_yxydm"]
+
+[sub_resource type="Animation" id="Animation_yxydm"]
+resource_name = "smash"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_331h8"]
+_data = {
+&"smash": SubResource("Animation_yxydm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxydm"]
+size = Vector2(41, 37.375)
+
+[node name="hammer" instance=ExtResource("1_b37dg")]
+script = ExtResource("2_yxydm")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_331h8")
+}
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(4.5, -19.3125)
+shape = SubResource("RectangleShape2D_yxydm")
