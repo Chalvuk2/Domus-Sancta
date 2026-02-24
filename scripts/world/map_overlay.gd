@@ -19,63 +19,104 @@ extends Control
 
 var screen = 1
 var enabled = false
-
+var mapData = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+@onready var buttonData = [[roomr1c1,roomr1c2,roomr1c3,roomr1c4,roomr1c5],[roomr2c1,roomr2c2,roomr2c3,roomr2c4,roomr2c5]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(mapData)
 	animation_player.play("RESET")
 
 func mapEditorMode():
 	animation_player.play("appear")
-	enabled=true 
+	enableButtons()
+	enabled=true
 	left.disabled=true
+
 func exitMapEditor():
-	animation_player.play("RESET")
+	print("exiting")
+	animation_player.play("screen left")
+	animation_player.play_backwards("appear")
 	enabled=false
 	world.startPlayerControl()
 	
+func enableButtons():
+	var check=0
+	for row in range(2):
+		for col in range (5):
+			if mapData[row][col]==0&&row==0&&col==0: buttonData[row][col].disabled=false
+			elif mapData[row][col]==0&&row==1&&col==0:
+				if mapData[row-1][col]==0: buttonData[row][col].disabled=true
+				else: buttonData[row][col].disabled=false
+			elif mapData[row][col]==1:
+				buttonData[row][col].disabled=true
+				check+=1
+			elif row==0:
+				if mapData[row][col-1]==1 || mapData[row+1][col]==1 :buttonData[row][col].disabled=false
+				else: buttonData[row][col].disabled=true
+			else:
+				if mapData[row][col-1]==1 || mapData[row-1][col]==1: buttonData[row][col].disabled=false
+				else:buttonData[row][col].disabled=true
+	if check==10: boss.disabled=false
+	else: boss.disabled=true
 
+func disableButtons():
+	print("d butt")
+	animation_player.play("buttonMouse")
 
+func revertButtons():
+	animation_player.play_backwards("buttonMouse")
+	
 func _on_r_1c_1_pressed() -> void:
 	if enabled:
 		roomr1c1.disabled = true
-		map_layout.setChunk(1,1)
+		mapData[0][0]=1
+		map_layout.getChunk(1,1)
 func _on_r_1c_2_pressed() -> void:
 	if enabled:
 		roomr1c2.disabled = true
-		map_layout.setChunk(1,2)
+		mapData[0][1]=1
+		map_layout.getChunk(1,2)
 func _on_r_1c_3_pressed() -> void:
 	if enabled:
 		roomr1c3.disabled = true
-		map_layout.setChunk(1,3)
+		mapData[0][2]=1
+		map_layout.getChunk(1,3)
 func _on_r_1c_4_pressed() -> void:
 	if enabled:
 		roomr1c4.disabled = true
-		map_layout.setChunk(1,4)
+		mapData[0][3]=1
+		map_layout.getChunk(1,4)
 func _on_r_1c_5_pressed() -> void:
 	if enabled:
 		roomr1c5.disabled = true
-		map_layout.setChunk(1,5)
+		mapData[0][4]=1
+		map_layout.getChunk(1,5)
 func _on_r_2c_1_pressed() -> void:
 	if enabled:
 		roomr2c1.disabled = true
-		map_layout.setChunk(2,1)
+		mapData[1][0]=1
+		map_layout.getChunk(2,1)
 func _on_r_2c_2_pressed() -> void:
 	if enabled:
 		roomr2c2.disabled = true
-		map_layout.setChunk(2,2)
+		mapData[1][1]=1
+		map_layout.getChunk(2,2)
 func _on_r_2c_3_pressed() -> void:
 	if enabled:
 		roomr2c3.disabled = true
-		map_layout.setChunk(2,3)
+		mapData[1][2]=1
+		map_layout.getChunk(2,3)
 func _on_r_2c_4_pressed() -> void:
 	if enabled:
 		roomr2c4.disabled = true
-		map_layout.setChunk(2,4)
+		mapData[1][3]=1
+		map_layout.getChunk(2,4)
 func _on_r_2c_5_pressed() -> void:
 	if enabled:
 		roomr2c5.disabled = true
-		map_layout.setChunk(2,5)
+		mapData[1][4]=1
+		map_layout.getChunk(2,5)
 func _on_boss_pressed() -> void:
 	if enabled:
 		boss.disabled=true
@@ -96,4 +137,3 @@ func _page_right() -> void:
 		animation_player.play_backwards("screen right")
 		right.disabled=true
 		left.disabled=false
-		

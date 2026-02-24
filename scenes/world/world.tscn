@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://chhls5cw4jb5e" path="res://scripts/world/world.gd" id="1_6m72w"]
 [ext_resource type="PackedScene" uid="uid://sxt026i1j2it" path="res://scenes/entities/player_temp.tscn" id="1_dphjl"]
 [ext_resource type="PackedScene" uid="uid://1pkdo8qb10qs" path="res://scenes/world/map_layout.tscn" id="2_v5dby"]
+[ext_resource type="PackedScene" uid="uid://bko720u2m37w7" path="res://scenes/menus/room_picker.tscn" id="4_bq33v"]
 [ext_resource type="PackedScene" uid="uid://cp3t28vtllldm" path="res://scenes/menus/pause.tscn" id="5_v5dby"]
 [ext_resource type="PackedScene" uid="uid://cfvitsctbmlsd" path="res://scenes/world/startingRoom.tscn" id="6_bq33v"]
-[ext_resource type="PackedScene" uid="uid://dtkqovsopwx8b" path="res://scenes/world/map_overlay.tscn" id="6_t5ptc"]
+[ext_resource type="PackedScene" uid="uid://dtkqovsopwx8b" path="res://scenes/menus/map_overlay.tscn" id="6_t5ptc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
 size = Vector2(20, 49)
@@ -21,13 +22,6 @@ position = Vector2(-17, -212)
 position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_t5ptc")
 
-[node name="MapLayout" parent="." unique_id=896857307 instance=ExtResource("2_v5dby")]
-position = Vector2(-2, -529)
-
-[node name="MapOverlay" parent="MapLayout" unique_id=2101711823 instance=ExtResource("6_t5ptc")]
-offset_top = 529.0
-offset_bottom = 529.0
-
 [node name="Main" parent="." unique_id=1670504212 instance=ExtResource("1_dphjl")]
 position = Vector2(-64.00001, -218.99997)
 
@@ -35,6 +29,18 @@ position = Vector2(-64.00001, -218.99997)
 position = Vector2(1, -11)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="StartingRoom" parent="." unique_id=164205513 instance=ExtResource("6_bq33v")]
+position = Vector2(-84, -193)
+
+[node name="MapLayout" parent="." unique_id=896857307 instance=ExtResource("2_v5dby")]
+position = Vector2(-2, -529)
+
+[node name="MapOverlay" parent="MapLayout" unique_id=2101711823 instance=ExtResource("6_t5ptc")]
+offset_top = 529.0
+offset_bottom = 529.0
+
+[node name="RoomPicker" parent="MapLayout" unique_id=829842973 instance=ExtResource("4_bq33v")]
 
 [node name="Pause" parent="." unique_id=1063596969 instance=ExtResource("5_v5dby")]
 anchors_preset = -1
@@ -44,8 +50,5 @@ offset_left = -52.0
 offset_top = -35.0
 offset_right = -52.0
 offset_bottom = -35.0
-
-[node name="StartingRoom" parent="." unique_id=164205513 instance=ExtResource("6_bq33v")]
-position = Vector2(-84, -193)
 
 [connection signal="body_entered" from="tempTrigger" to="." method="_on_temp_trigger_body_entered"]

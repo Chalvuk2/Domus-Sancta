@@ -1,7 +1,7 @@
 extends Control
 
 #used to call Animation player, the node used to fade the screen in and out
-@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var enabled = false
 #_ready playes whenever the game starts, making the menu disappear
 func _ready():
@@ -10,12 +10,6 @@ func _ready():
 #resume is used to unpause the game back to its normal state
 func resume():
 	if enabled:
-		$CanvasLayer/ColorRect.mouse_filter =  MOUSE_FILTER_IGNORE
-		$CanvasLayer/PanelContainer.mouse_filter =  MOUSE_FILTER_IGNORE
-		$CanvasLayer/PanelContainer/VBoxContainer.mouse_filter =  MOUSE_FILTER_IGNORE
-		$CanvasLayer/PanelContainer/VBoxContainer/Resume.mouse_filter =  MOUSE_FILTER_IGNORE
-		$CanvasLayer/PanelContainer/VBoxContainer/Help.mouse_filter =  MOUSE_FILTER_IGNORE
-		$CanvasLayer/PanelContainer/VBoxContainer/Quit.mouse_filter =  MOUSE_FILTER_IGNORE
 		get_tree().paused = false;
 		animation_player.play_backwards("blur")
 		enabled = false
@@ -23,12 +17,6 @@ func resume():
 #pause is used to freeze the game then pull up menu
 func pause():
 	if !enabled:
-		$CanvasLayer/ColorRect.mouse_filter =  MOUSE_FILTER_STOP
-		$CanvasLayer/PanelContainer.mouse_filter =  MOUSE_FILTER_STOP
-		$CanvasLayer/PanelContainer/VBoxContainer.mouse_filter =  MOUSE_FILTER_STOP
-		$CanvasLayer/PanelContainer/VBoxContainer/Resume.mouse_filter =  MOUSE_FILTER_STOP
-		$CanvasLayer/PanelContainer/VBoxContainer/Help.mouse_filter =  MOUSE_FILTER_STOP
-		$CanvasLayer/PanelContainer/VBoxContainer/Quit.mouse_filter =  MOUSE_FILTER_STOP
 		get_tree().paused = true;
 		animation_player.play("blur")
 		enabled = true 
