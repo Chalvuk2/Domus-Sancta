@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw3b7bhbdax3b"]
+
+[ext_resource type="Script" uid="uid://dw04e41s7i0hm" path="res://scripts/weapons/weapon_base.gd" id="1_v4xn6"]
+
+[node name="weaponBase" type="Node2D"]
+script = ExtResource("1_v4xn6")
+damage = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
