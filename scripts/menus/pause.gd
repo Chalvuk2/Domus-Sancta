@@ -1,7 +1,7 @@
 extends Control
 
 #used to call Animation player, the node used to fade the screen in and out
-@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var enabled = false
 #_ready playes whenever the game starts, making the menu disappear
 func _ready():
