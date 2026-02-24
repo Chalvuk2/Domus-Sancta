@@ -1,9 +1,10 @@
-[gd_scene format=4 uid="uid://blx30la8fa6ox"]
+[gd_scene format=4 uid="uid://cfvitsctbmlsd"]
 
-[ext_resource type="Texture2D" uid="uid://7f8a4sbmukyj" path="res://assets/TEMP/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_02sd8"]
+[ext_resource type="Script" uid="uid://b1iy3au1hit4f" path="res://scripts/world/testchunk.gd" id="1_n2scf"]
+[ext_resource type="Texture2D" uid="uid://7f8a4sbmukyj" path="res://assets/TEMP/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_137e0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfaba"]
-texture = ExtResource("1_02sd8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uff1w"]
+texture = ExtResource("2_137e0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -152,12 +153,17 @@ texture = ExtResource("1_02sd8")
 2:4/size_in_atlas = Vector2i(3, 3)
 2:4/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_1i6bn"]
+[sub_resource type="TileSet" id="TileSet_u7sce"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jfaba")
+sources/0 = SubResource("TileSetAtlasSource_uff1w")
 
-[node name="Room 5 temp" type="Node2D" unique_id=164205513]
+[node name="StartingRoom" type="Node2D" unique_id=164205513]
+position = Vector2(0, -11)
+script = ExtResource("1_n2scf")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1893134369]
-tile_map_data = PackedByteArray("AAABAP//AAABAAEAAAARAP//AAABAAEAAAAQAP//AAABAAEAAAAPAP//AAABAAEAAAAOAP//AAABAAEAAAANAP//AAABAAEAAAAMAP//AAABAAEAAAALAP//AAABAAEAAAAKAP//AAABAAEAAAAJAP//AAABAAEAAAAIAP//AAABAAEAAAAHAP//AAABAAEAAAAGAP//AAABAAEAAAAFAP//AAABAAEAAAAEAP//AAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAAAAP//AAABAAEAAAD/////AAABAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAD8////AAABAAEAAAD7////AAABAAEAAAD6////AAABAAEAAAD5////AAABAAEAAAD4////AAABAAEAAAD3////AAABAAEAAAD3//7/AAABAAEAAAD3//3/AAABAAEAAAD3//z/AAABAAEAAAD3//v/AAABAAEAAAD3//r/AAABAAEAAAD3//n/AAABAAEAAAD3//j/AAABAAEAAAD4//j/AAABAAEAAAD4//f/AAABAAEAAAD5//f/AAABAAEAAAD6//f/AAABAAEAAAD7//f/AAABAAEAAAD8//f/AAABAAEAAAD9//f/AAABAAEAAAD+//f/AAABAAEAAAD///f/AAABAAEAAAAAAPf/AAABAAEAAAABAPf/AAABAAEAAAACAPf/AAABAAEAAAADAPf/AAABAAEAAAAEAPf/AAABAAEAAAAFAPf/AAABAAEAAAAGAPf/AAABAAEAAAAHAPf/AAABAAEAAAAIAPf/AAABAAEAAAAJAPf/AAABAAEAAAAKAPf/AAABAAEAAAALAPf/AAABAAEAAAAMAPf/AAABAAEAAAANAPf/AAABAAEAAAAOAPf/AAABAAEAAAAPAPf/AAABAAEAAAAQAPf/AAABAAEAAAARAPf/AAABAAEAAAASAPf/AAABAAEAAAASAPj/AAABAAEAAAASAPn/AAABAAEAAAATAPn/AAABAAEAAAATAPr/AAABAAEAAAATAPv/AAABAAEAAAATAPz/AAABAAEAAAATAP3/AAABAAEAAAATAP7/AAABAAEAAAASAP7/AAABAAEAAAASAP//AAABAAEAAAA=")
-tile_set = SubResource("TileSet_1i6bn")
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1787077792]
+scale = Vector2(0.7, 0.7)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAPv/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAACAPr/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_u7sce")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

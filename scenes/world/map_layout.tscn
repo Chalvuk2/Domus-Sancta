@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1pkdo8qb10qs"]
+
+[ext_resource type="Script" uid="uid://dywwy7e0t2xqj" path="res://scripts/world/map_layout.gd" id="1_rgvs1"]
+
+[node name="MapLayout" type="Node2D" unique_id=896857307]
+script = ExtResource("1_rgvs1")
+
+[node name="PlacedRooms" type="Node2D" parent="." unique_id=800100239]
+
+[node name="cam1" type="Camera2D" parent="." unique_id=87871681]
+position = Vector2(576, 324)
+enabled = false
+
+[node name="cam2" type="Camera2D" parent="." unique_id=1983992286]
+position = Vector2(1717, 324)
+enabled = false
