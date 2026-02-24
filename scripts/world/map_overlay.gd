@@ -35,8 +35,7 @@ func mapEditorMode():
 
 func exitMapEditor():
 	print("exiting")
-	animation_player.play("screen left")
-	animation_player.play_backwards("appear")
+	animation_player.play("disappear")
 	enabled=false
 	world.startPlayerControl()
 	
@@ -61,7 +60,6 @@ func enableButtons():
 	else: boss.disabled=true
 
 func disableButtons():
-	print("d butt")
 	animation_player.play("buttonMouse")
 
 func revertButtons():
