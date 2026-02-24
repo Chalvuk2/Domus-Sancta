@@ -305,10 +305,10 @@ tracks/0/path = NodePath("CanvasLayer/PanelContainer/HBoxContainer/Room3:visible
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -317,10 +317,10 @@ tracks/1/path = NodePath("CanvasLayer/PanelContainer/HBoxContainer/Room1:visible
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, false]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -329,10 +329,10 @@ tracks/2/path = NodePath("CanvasLayer/PanelContainer/HBoxContainer/Room2:visible
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, false]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -341,10 +341,10 @@ tracks/3/path = NodePath("CanvasLayer/PanelContainer/HBoxContainer/Room4:visible
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false, false]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6wkq8"]
@@ -463,6 +463,7 @@ offset_right = 1151.0
 offset_bottom = 647.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=96543743]
 modulate = Color(1, 1, 1, 0)
@@ -477,10 +478,11 @@ offset_right = 558.5
 offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=530548004]
 layout_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 theme_override_constants/separation = 43
 
 [node name="Room1" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1756918259]

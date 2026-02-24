@@ -7,6 +7,7 @@ extends Control
 @onready var room_4: TextureButton = $CanvasLayer/PanelContainer/HBoxContainer/Room4
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var roomData = [false,false,false,false]
+
 var enabled = false
 #_ready playes whenever the game starts, making the menu disappear
 func _ready():
@@ -15,7 +16,7 @@ func _ready():
 #resume is used to unpause the game back to its normal state
 func closeRoomPicker():
 	animation_player.play("buttonDisappear")
-	animation_player.play_backwards("mouseStop")
+	disableMouse()
 	animation_player.play_backwards("blur")
 	enabled = false
 	
@@ -27,6 +28,15 @@ func openRoomPicker():
 	animation_player.play("blur")
 	enabled = true 
 
+func disableMouse():
+	$CanvasLayer/ColorRect.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	$CanvasLayer/PanelContainer.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	$CanvasLayer/PanelContainer/HBoxContainer.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	room_1.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	room_2.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	room_3.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	room_4.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	
 func enableRooms():
 	clearButton()
 	var count=0
