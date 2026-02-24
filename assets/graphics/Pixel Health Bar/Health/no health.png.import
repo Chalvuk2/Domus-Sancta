@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drs60xor0cmrv"
-path="res://.godot/imported/New Piskel.png-bf0f2cd29418c0bfc81afeea774d86b7.ctex"
+uid="uid://bkoa3326yip7t"
+path="res://.godot/imported/no health.png-7ae656a8086c6c03b71c3f076cd2c745.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/entities/HolyDove/New Piskel.png"
-dest_files=["res://.godot/imported/New Piskel.png-bf0f2cd29418c0bfc81afeea774d86b7.ctex"]
+source_file="res://assets/graphics/Pixel Health Bar/Health/no health.png"
+dest_files=["res://.godot/imported/no health.png-7ae656a8086c6c03b71c3f076cd2c745.ctex"]
 
 [params]
 

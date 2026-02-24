@@ -46,3 +46,9 @@ func _on_help_pressed() -> void:
 func _on_quit_pressed() -> void:
 	if enabled:
 		get_tree().quit();
+		
+func testPause():
+	if !get_tree().paused:
+		pause()
+	else:
+		resume()
