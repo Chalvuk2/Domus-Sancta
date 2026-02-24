@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch32e2l7b56yy"]
+[gd_scene format=3 uid="uid://ch32e2l7b56yy"]
 
 [ext_resource type="Script" uid="uid://cpo3is77hty2e" path="res://scripts/entities/slime.gd" id="1_10iln"]
 [ext_resource type="Texture2D" uid="uid://dk4j7lip80v70" path="res://assets/TEMP/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="2_5ax0t"]

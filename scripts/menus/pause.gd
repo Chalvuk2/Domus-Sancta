@@ -28,6 +28,11 @@ func testEsc():
 	elif Input.is_action_just_pressed("esc") && get_tree().paused:
 		resume()
 
+#called whenever a key is pressed
+func _process(_delta: float) -> void:
+	testEsc()
+	
+
 #calls the resume function by pressing the resume button
 func _on_resume_pressed() -> void:
 	resume()
@@ -41,7 +46,3 @@ func _on_help_pressed() -> void:
 func _on_quit_pressed() -> void:
 	if enabled:
 		get_tree().quit();
-
-#called whenever a key is pressed
-func _process(_delta: float) -> void:
-	testEsc()
