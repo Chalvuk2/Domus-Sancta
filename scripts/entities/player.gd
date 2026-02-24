@@ -8,6 +8,8 @@ var lastDirection = 1.0
 var rolling = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main: CharacterBody2D = $"."
+var facing_direction: Vector2 = Vector2.RIGHT
+var lastDirection = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -75,3 +77,45 @@ func jump():
 		sprite.play("jump_peak")
 	else:
 		sprite.play("jump_down")
+
+# Weapon Logic
+@export var sword_scene: PackedScene
+@export var spear_scene: PackedScene
+@export var hammer_scene: PackedScene
+
+var current_weapon: Weapon
+var unlocked_weapons = [true, false, false]
+
+func equip_weapon(slot: int) -> void:
+	if current_weapon:
+		current_weapon.queue_free()
+		current_weapon = null
+	var new_weapon: Weapon = null
+	match slot:
+		0: 
+			if sword_scene: 
+				new_weapon = sword_scene.instantiate()
+		1: 
+			if spear_scene: 
+				new_weapon = spear_scene.instantiate()
+		2: 
+			if hammer_scene: 
+				new_weapon = hammer_scene.instantiate()
+	if new_weapon:
+		add_child(new_weapon)
+		new_weapon.position = Vector2(20, 0)
+		current_weapon = new_weapon
+
+func _ready() -> void:
+	equip_weapon(0)  # start with sword
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if current_weapon:
+			current_weapon.attack(facing_direction)
+	if event.is_action_pressed("weapon_1"): equip_weapon(0)
+	if event.is_action_pressed("weapon_2") and unlocked_weapons[1]: equip_weapon(1)
+	if event.is_action_pressed("weapon_3") and unlocked_weapons[2]: equip_weapon(2)
+
+func _on_weapon_attack_finished() -> void: 
+	pass 
