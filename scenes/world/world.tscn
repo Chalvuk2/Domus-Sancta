@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd7mua46tcaky"]
+[gd_scene format=3 uid="uid://cd7mua46tcaky"]
 
 [ext_resource type="Script" uid="uid://chhls5cw4jb5e" path="res://scripts/world/world.gd" id="1_6m72w"]
 [ext_resource type="PackedScene" uid="uid://sxt026i1j2it" path="res://scenes/entities/player_temp.tscn" id="1_dphjl"]
@@ -32,6 +32,7 @@ position_smoothing_enabled = true
 
 [node name="StartingRoom" parent="." unique_id=164205513 instance=ExtResource("6_bq33v")]
 position = Vector2(-84, -193)
+script = null
 
 [node name="MapLayout" parent="." unique_id=896857307 instance=ExtResource("2_v5dby")]
 position = Vector2(-2, -529)
@@ -42,7 +43,7 @@ offset_bottom = 529.0
 
 [node name="RoomPicker" parent="MapLayout" unique_id=829842973 instance=ExtResource("4_bq33v")]
 
-[node name="Pause" parent="." instance=ExtResource("5_v5dby")]
+[node name="Pause" parent="." unique_id=480013093 instance=ExtResource("5_v5dby")]
 anchors_preset = -1
 anchor_right = 0.0
 anchor_bottom = 0.0

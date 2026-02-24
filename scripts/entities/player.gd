@@ -9,7 +9,6 @@ var rolling = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main: CharacterBody2D = $"."
 var facing_direction: Vector2 = Vector2.RIGHT
-var lastDirection = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -113,9 +112,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_weapon:
 			current_weapon.attack(facing_direction)
-	if event.is_action_pressed("weapon_1"): equip_weapon(0)
-	if event.is_action_pressed("weapon_2") and unlocked_weapons[1]: equip_weapon(1)
-	if event.is_action_pressed("weapon_3") and unlocked_weapons[2]: equip_weapon(2)
+
 
 func _on_weapon_attack_finished() -> void: 
 	pass 

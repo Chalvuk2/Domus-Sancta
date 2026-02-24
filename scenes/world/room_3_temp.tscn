@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7f8a4sbmukyj" path="res://assets/TEMP/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_jfaba"]
 [ext_resource type="Script" uid="uid://b1iy3au1hit4f" path="res://scripts/world/testchunk.gd" id="1_l6sbh"]
+[ext_resource type="PackedScene" uid="uid://ch32e2l7b56yy" path="res://scenes/entities/slime.tscn" id="3_5ssnp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uff1w"]
 texture = ExtResource("1_jfaba")
@@ -204,6 +205,9 @@ shape = SubResource("RectangleShape2D_qdvp6")
 position = Vector2(190, -95)
 enabled = false
 zoom = Vector2(3, 3)
+
+[node name="Slime" parent="." unique_id=616263632 instance=ExtResource("3_5ssnp")]
+position = Vector2(174, -82)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="CameraLockL" to="." method="_LockLeft"]
