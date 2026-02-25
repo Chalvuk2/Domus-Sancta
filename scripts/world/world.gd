@@ -16,10 +16,10 @@ func _process(delta: float) -> void:
 
 
 func _on_temp_trigger_body_entered(body: Node2D) -> void:
-	main_cam.enabled = false
-	$MapLayout/cam1.enabled=true
-	map_overlay.mapEditorMode()
-	
+	if body.is_in_group("player"):
+		main_cam.enabled = false
+		$MapLayout/cam1.enabled=true
+		map_overlay.mapEditorMode()
 
 func startPlayerControl():
 	$MapLayout/cam1.enabled=false

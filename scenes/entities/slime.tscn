@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dk4j7lip80v70" path="res://assets/TEMP/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="2_5ax0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ax0t"]
-radius = 12.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ftkj"]
 atlas = ExtResource("2_5ax0t")
@@ -42,19 +42,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" unique_id=2093752867]
 collision_layer = 7
 collision_mask = 5
 script = ExtResource("1_10iln")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1404299851]
 visibility_layer = 7
-position = Vector2(0, -10)
+position = Vector2(0, -6)
+rotation = -1.5707964
 shape = SubResource("CircleShape2D_5ax0t")
 
-[node name="HopTimer" type="Timer" parent="."]
+[node name="HopTimer" type="Timer" parent="." unique_id=1100995627]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1830177653]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_8fx6r")
 frame_progress = 0.835779
