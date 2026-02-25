@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dtkqovsopwx8b" path="res://scenes/menus/map_overlay.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://cpos8gwtxheue" path="res://scenes/menus/hud.tscn" id="7_j2gmx"]
 
+[sub_resource type="GDScript" id="GDScript_j2gmx"]
+script/source = "extends Area2D
+
+
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
 size = Vector2(20, 49)
 
@@ -18,6 +24,7 @@ script = ExtResource("1_6m72w")
 
 [node name="tempTrigger" type="Area2D" parent="." unique_id=2068558408]
 position = Vector2(-17, -212)
+script = SubResource("GDScript_j2gmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tempTrigger" unique_id=1079819856]
 position = Vector2(0, -8.5)

@@ -42,7 +42,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Slime" type="CharacterBody2D" unique_id=2093752867]
+[node name="Slime" type="CharacterBody2D" unique_id=2093752867 groups=["enemies"]]
 collision_layer = 7
 collision_mask = 5
 script = ExtResource("1_10iln")

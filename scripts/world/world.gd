@@ -4,14 +4,20 @@ extends Node2D
 @onready var map_layout: Node2D = $MapLayout
 @onready var main: CharacterBody2D = $Main
 @onready var main_cam: Camera2D = $Main/MainCam
-
+@onready var collision_shape = $CollisionChape2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
+func lock_unlock() -> void:
+	if get_tree().get_nodes_in_group("enemies").size() > 0:
+		print("AAAAAAHHHH")
+	else:
+		print("Oh Ok")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	lock_unlock()
 	pass
 
 

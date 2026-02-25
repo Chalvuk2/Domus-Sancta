@@ -4,7 +4,6 @@ extends Node2D
 @onready var room_camera: Camera2D = $RoomCamera
 @onready var main: CharacterBody2D = $"../Main"
 
-
 func _on_ready() -> void:
 	unlock()
 
