@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1iy3au1hit4f" path="res://scripts/world/testchunk.gd" id="1_kdjyp"]
 [ext_resource type="Texture2D" uid="uid://cmavr1x74evss" path="res://assets/graphics/Legacy-Dungeon_V0.2_vacaroxa/Final/Assets/Assets.png" id="2_e4crp"]
 [ext_resource type="PackedScene" uid="uid://ch32e2l7b56yy" path="res://scenes/entities/slime.tscn" id="3_fdpft"]
+[ext_resource type="PackedScene" uid="uid://b7xmhe7jjyusw" path="res://scenes/world/platform.tscn" id="4_e4crp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dksmk"]
 texture = ExtResource("2_e4crp")
@@ -219,6 +220,9 @@ size = Vector2(3, 42.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdvp6"]
 size = Vector2(1.125, 42.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdjyp"]
+size = Vector2(1.125, 42.25)
+
 [node name="Room 1 temp" type="Node2D" unique_id=164205513]
 position = Vector2(0, -11)
 script = ExtResource("1_kdjyp")
@@ -265,8 +269,31 @@ position = Vector2(139, -120)
 [node name="Slime2" parent="Enemies" unique_id=198886090 instance=ExtResource("3_fdpft")]
 position = Vector2(221, -82)
 
+[node name="CameraLockR2" type="Area2D" parent="." unique_id=299267488]
+position = Vector2(-176, -183)
+collision_layer = 4
+
+[node name="LockR" type="CollisionShape2D" parent="CameraLockR2" unique_id=1060138766]
+position = Vector2(366, -10.000001)
+rotation = 1.5655631
+shape = SubResource("RectangleShape2D_kdjyp")
+
+[node name="CameraUnlockR2" type="Area2D" parent="." unique_id=1298830804]
+position = Vector2(-201, -178)
+collision_layer = 4
+
+[node name="UnlockR" type="CollisionShape2D" parent="CameraUnlockR2" unique_id=1503441544]
+position = Vector2(391, -22)
+rotation = 1.5675411
+shape = SubResource("RectangleShape2D_kdjyp")
+
+[node name="platform" parent="." unique_id=334479563 instance=ExtResource("4_e4crp")]
+position = Vector2(192, -145)
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="CameraLockL" to="." method="_LockLeft"]
 [connection signal="body_entered" from="CameraUnlockL" to="." method="_UnlockLeft"]
 [connection signal="body_entered" from="CameraLockR" to="." method="_LockRight"]
 [connection signal="body_entered" from="CameraUnlockR" to="." method="_UnlockRight"]
+[connection signal="body_entered" from="CameraLockR2" to="." method="_LockRight"]
+[connection signal="body_entered" from="CameraUnlockR2" to="." method="_UnlockRight"]

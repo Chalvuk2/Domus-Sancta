@@ -41,7 +41,6 @@ func enableRooms():
 	clearButton()
 	var count=0
 	while count!=3:
-		printt("stuck",count)
 		var randRoom = randi_range(1,4)
 		match randRoom:
 			1:

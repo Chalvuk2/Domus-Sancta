@@ -164,6 +164,9 @@ size = Vector2(3, 42.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdvp6"]
 size = Vector2(1.125, 42.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb7gk"]
+size = Vector2(1.125, 42.25)
+
 [node name="Room 1 temp" type="Node2D" unique_id=164205513]
 position = Vector2(37, 236)
 script = ExtResource("1_jb7gk")
@@ -212,8 +215,28 @@ position = Vector2(90, -15)
 [node name="Slime2" parent="." unique_id=1357123836 instance=ExtResource("3_hfn7s")]
 position = Vector2(216, -11)
 
+[node name="CameraLockR2" type="Area2D" parent="." unique_id=1254787]
+position = Vector2(-175, 15)
+collision_layer = 4
+
+[node name="LockR" type="CollisionShape2D" parent="CameraLockR2" unique_id=1186089966]
+position = Vector2(366.00003, -12.000001)
+rotation = 1.5655631
+shape = SubResource("RectangleShape2D_jb7gk")
+
+[node name="CameraUnlockR2" type="Area2D" parent="." unique_id=728158750]
+position = Vector2(-200, 30)
+collision_layer = 4
+
+[node name="UnlockR" type="CollisionShape2D" parent="CameraUnlockR2" unique_id=1165004343]
+position = Vector2(391, -22)
+rotation = 1.5675411
+shape = SubResource("RectangleShape2D_jb7gk")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="CameraLockL" to="." method="_LockLeft"]
 [connection signal="body_entered" from="CameraUnlockL" to="." method="_UnlockLeft"]
 [connection signal="body_entered" from="CameraLockR" to="." method="_LockRight"]
 [connection signal="body_entered" from="CameraUnlockR" to="." method="_UnlockRight"]
+[connection signal="body_entered" from="CameraLockR2" to="." method="_LockRight"]
+[connection signal="body_entered" from="CameraUnlockR2" to="." method="_UnlockRight"]
