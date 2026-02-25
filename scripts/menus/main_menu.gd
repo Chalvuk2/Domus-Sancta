@@ -8,11 +8,11 @@ func _on_play_pressed() -> void:
 
 
 func _on_help_pressed() -> void:
-	pass # Replace with function body.
+	$help.summon()
 
 
 func _on_credits_pressed() -> void:
-	pass
+	$credits.summon()
 
 
 func _on_quit_pressed() -> void:

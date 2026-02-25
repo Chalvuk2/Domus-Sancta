@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dioybj74dbreq" path="res://scripts/menus/main_menu.gd" id="1_2o76q"]
 [ext_resource type="Texture2D" uid="uid://bpd6ql1hw40yf" path="res://assets/graphics/AI Generated/domusSanctaMain.png" id="1_ovrgc"]
 [ext_resource type="Texture2D" uid="uid://bq751mj11uh5k" path="res://assets/graphics/AI Generated/domusSanctaTitleCard.png" id="2_2o76q"]
+[ext_resource type="PackedScene" uid="uid://ddvayoqx75t0m" path="res://scenes/menus/credits.tscn" id="2_6bivr"]
+[ext_resource type="PackedScene" uid="uid://orcndrjvhvnk" path="res://scenes/menus/help.tscn" id="3_imvie"]
 
 [node name="Main Menu" type="Control" unique_id=72808541]
 layout_mode = 3
@@ -13,6 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2o76q")
 metadata/_edit_vertical_guides_ = [-894.0]
+
+[node name="credits" parent="." unique_id=142010099 instance=ExtResource("2_6bivr")]
+layout_mode = 1
+
+[node name="help" parent="." unique_id=53890544 instance=ExtResource("3_imvie")]
+layout_mode = 1
 
 [node name="DomusSanctaMain" type="Sprite2D" parent="." unique_id=19639868]
 position = Vector2(610, 351)
