@@ -6,10 +6,11 @@ var rollSpeed = 300.0
 const JUMP_VELOCITY = -300.0
 var lastDirection = 1.0
 var rolling = false
+var maxHealth=10
+var currentHealth=10
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main: CharacterBody2D = $"."
 var facing_direction: Vector2 = Vector2.RIGHT
-var lastDirection = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -27,6 +28,10 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("leftshift") && is_on_floor():
 			rolling = true
 		
+		if Input.is_action_pressed("test"):
+			currentHealth-=1
+			#what needs to get called whenever health needs to update
+			$"../HUD".updateHealth()
 		if rolling:
 			roll(lastDirection)
 		
@@ -78,6 +83,8 @@ func jump():
 	else:
 		sprite.play("jump_down")
 
+
+
 # Weapon Logic
 @export var sword_scene: PackedScene
 @export var spear_scene: PackedScene
@@ -113,9 +120,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_weapon:
 			current_weapon.attack(facing_direction)
-	if event.is_action_pressed("weapon_1"): equip_weapon(0)
-	if event.is_action_pressed("weapon_2") and unlocked_weapons[1]: equip_weapon(1)
-	if event.is_action_pressed("weapon_3") and unlocked_weapons[2]: equip_weapon(2)
+
 
 func _on_weapon_attack_finished() -> void: 
 	pass 

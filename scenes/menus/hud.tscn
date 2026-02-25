@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cpos8gwtxheue"]
+
+[ext_resource type="Script" uid="uid://b6jilaxenfdba" path="res://scripts/menus/hud.gd" id="1_lf75b"]
+[ext_resource type="Texture2D" uid="uid://c83d7nnfx43ww" path="res://assets/graphics/Pixel Health Bar/Bar/no health bar.png" id="1_tfgnj"]
+[ext_resource type="Texture2D" uid="uid://b56qqgp6w55kg" path="res://assets/graphics/Pixel Health Bar/Bar/health bar.png" id="2_lf75b"]
+
+[node name="HUD" type="Control" unique_id=932223968]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lf75b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=954305659]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1221481026]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 1087.0
+offset_bottom = 41.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("1_tfgnj")
+texture_progress = ExtResource("2_lf75b")
+
+[node name="pause" type="Button" parent="CanvasLayer" unique_id=1984459207]
+offset_left = 1090.0001
+offset_top = 3.9999998
+offset_right = 1098.0001
+offset_bottom = 12.0
+scale = Vector2(1.5781834, 1.3527201)
+text = "||"
+
+[connection signal="pressed" from="CanvasLayer/pause" to="." method="_on_pause_pressed"]

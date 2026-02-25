@@ -30,12 +30,14 @@ func _ready():
 func mapEditorMode():
 	animation_player.play("appear")
 	enableButtons()
+	$"../../Main".enabled=false
 	enabled=true
 	left.disabled=true
 
 func exitMapEditor():
 	print("exiting")
 	animation_player.play("disappear")
+	$"../../Main".enabled=true
 	enabled=false
 	world.startPlayerControl()
 	

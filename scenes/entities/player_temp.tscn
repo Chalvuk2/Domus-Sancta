@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://sxt026i1j2it"]
+[gd_scene format=3 uid="uid://sxt026i1j2it"]
 
 [ext_resource type="Texture2D" uid="uid://m151ppp1gq1t" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Idle.png" id="1_8xdvd"]
 [ext_resource type="Script" uid="uid://43k7bbsrba0w" path="res://scripts/entities/player.gd" id="1_crmmm"]
@@ -8,9 +8,26 @@
 [ext_resource type="PackedScene" uid="uid://dmq2toxaf3jnh" path="res://scenes/weapons/spear.tscn" id="3_wxk8f"]
 [ext_resource type="Texture2D" uid="uid://dmi3ec8emc1i7" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_JumpFallInbetween.png" id="4_tx4h3"]
 [ext_resource type="PackedScene" uid="uid://pem1b65bhyov" path="res://scenes/weapons/hammer.tscn" id="4_uddgr"]
+[ext_resource type="Texture2D" uid="uid://bdi8afbcflr0b" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Attack.png" id="5_wxk8f"]
 [ext_resource type="Texture2D" uid="uid://bovhp7evefytr" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Jump.png" id="5_xxi7b"]
 [ext_resource type="Texture2D" uid="uid://dmjmkdp4lonih" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Roll.png" id="6_xxi7b"]
 [ext_resource type="Texture2D" uid="uid://cdctrys7ty46g" path="res://assets/TEMP/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_TurnAround.png" id="7_tx4h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcvc"]
+atlas = ExtResource("5_wxk8f")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2vf4"]
+atlas = ExtResource("5_wxk8f")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecknk"]
+atlas = ExtResource("5_wxk8f")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi8u3"]
+atlas = ExtResource("5_wxk8f")
+region = Rect2(360, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crmmm"]
 atlas = ExtResource("1_8xdvd")
@@ -188,6 +205,23 @@ region = Rect2(240, 0, 120, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2vf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecknk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi8u3")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_crmmm")
 }, {
 "duration": 1.0,
@@ -354,7 +388,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uddgr"]
 radius = 8.0
 
-[node name="Main" type="CharacterBody2D" groups=["player"]]
+[node name="Main" type="CharacterBody2D" unique_id=636879402 groups=["player"]]
 position = Vector2(2, 0)
 scale = Vector2(0.7, 0.7)
 collision_mask = 255
@@ -367,9 +401,9 @@ hammer_scene = ExtResource("4_uddgr")
 position = Vector2(1.4285717, -38.571426)
 scale = Vector2(0.9916667, 0.95)
 sprite_frames = SubResource("SpriteFrames_wxk8f")
-animation = &"idle_temp"
+animation = &"attack"
 autoplay = "idle_temp"
-frame_progress = 0.0997522
+frame_progress = 0.9851357
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056125592]
