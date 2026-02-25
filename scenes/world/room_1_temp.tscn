@@ -235,21 +235,18 @@ position = Vector2(16, -22)
 shape = SubResource("RectangleShape2D_u7sce")
 
 [node name="CameraUnlockL" type="Area2D" parent="." unique_id=718328298]
-collision_layer = 4
 
 [node name="UnlockL" type="CollisionShape2D" parent="CameraUnlockL" unique_id=207385597]
 position = Vector2(2, -22)
 shape = SubResource("RectangleShape2D_u7sce")
 
 [node name="CameraLockR" type="Area2D" parent="." unique_id=209999674]
-collision_layer = 4
 
 [node name="LockR" type="CollisionShape2D" parent="CameraLockR" unique_id=525173006]
 position = Vector2(365, -22)
 shape = SubResource("RectangleShape2D_qdvp6")
 
 [node name="CameraUnlockR" type="Area2D" parent="." unique_id=1124528197]
-collision_layer = 4
 
 [node name="UnlockR" type="CollisionShape2D" parent="CameraUnlockR" unique_id=1041070736]
 position = Vector2(379, -21)

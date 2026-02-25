@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b1bbjjl0n4gr3"]
+
+[ext_resource type="Script" uid="uid://dioybj74dbreq" path="res://scripts/menus/main_menu.gd" id="1_2o76q"]
+[ext_resource type="Texture2D" uid="uid://bpd6ql1hw40yf" path="res://assets/graphics/AI Generated/domusSanctaMain.png" id="1_ovrgc"]
+[ext_resource type="Texture2D" uid="uid://bq751mj11uh5k" path="res://assets/graphics/AI Generated/domusSanctaTitleCard.png" id="2_2o76q"]
+
+[node name="Main Menu" type="Control" unique_id=72808541]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2o76q")
+metadata/_edit_vertical_guides_ = [-894.0]
+
+[node name="DomusSanctaMain" type="Sprite2D" parent="." unique_id=19639868]
+position = Vector2(610, 351)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ovrgc")
+
+[node name="DomusSanctaTitleCard" type="Sprite2D" parent="." unique_id=610885276]
+position = Vector2(341, 146)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2o76q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=935130721]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 266.0
+offset_right = 315.0
+offset_bottom = 402.0
+scale = Vector2(3.15581, 2.553904)
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=1522402586]
+layout_mode = 2
+text = "Play"
+
+[node name="Help" type="Button" parent="VBoxContainer" unique_id=888756193]
+layout_mode = 2
+text = "Help"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1924040576]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=848151094]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
