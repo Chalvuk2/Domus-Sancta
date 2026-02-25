@@ -39,8 +39,8 @@ func _on_resume_pressed() -> void:
 
 
 func _on_help_pressed() -> void:
-	#Will be used to pull up movement screen
-	pass # Replace with function body.
+	if enabled:
+		$"../help".summon()
 
 #quits the game whenever you want to quit the game
 func _on_quit_pressed() -> void:

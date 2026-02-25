@@ -1270,6 +1270,14 @@ offset_right = 1083.0
 offset_bottom = 201.0
 text = "Jump with spacebar"
 
+[node name="Label4" type="Label" parent="CanvasLayer/ColorRect/Label4" unique_id=1086904682]
+layout_mode = 0
+offset_left = -659.0
+offset_top = 202.0
+offset_right = -53.0
+offset_bottom = 225.0
+text = "Please help us restore the church! It's been overrun by monsters! Go and fight!"
+
 [node name="Button" type="Button" parent="CanvasLayer/ColorRect" unique_id=1864811982]
 layout_mode = 0
 offset_left = 493.0

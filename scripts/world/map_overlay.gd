@@ -24,7 +24,6 @@ var mapData = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(mapData)
 	animation_player.play("RESET")
 
 func mapEditorMode():
@@ -35,7 +34,6 @@ func mapEditorMode():
 	left.disabled=true
 
 func exitMapEditor():
-	print("exiting")
 	animation_player.play("disappear")
 	$"../../Main".enabled=true
 	enabled=false
@@ -66,7 +64,9 @@ func disableButtons():
 
 func revertButtons():
 	animation_player.play_backwards("buttonMouse")
-	
+
+func getMapData():
+	return mapData
 func _on_r_1c_1_pressed() -> void:
 	if enabled:
 		roomr1c1.disabled = true

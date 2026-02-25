@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7xmhe7jjyusw"]
+
+[ext_resource type="Texture2D" uid="uid://cmavr1x74evss" path="res://assets/graphics/Legacy-Dungeon_V0.2_vacaroxa/Final/Assets/Assets.png" id="1_4217e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ecf0"]
+size = Vector2(44, 4)
+
+[node name="platform" type="AnimatableBody2D" unique_id=334479563]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914579538]
+texture = ExtResource("1_4217e")
+region_enabled = true
+region_rect = Rect2(195.64247, 111.05109, 45.000443, 4.6460037)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1494103135]
+shape = SubResource("RectangleShape2D_5ecf0")
+one_way_collision = true

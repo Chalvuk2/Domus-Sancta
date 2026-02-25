@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://chhls5cw4jb5e" path="res://scripts/world/world.gd" id="1_6m72w"]
 [ext_resource type="PackedScene" uid="uid://sxt026i1j2it" path="res://scenes/entities/player_temp.tscn" id="1_dphjl"]
+[ext_resource type="PackedScene" uid="uid://b7xmhe7jjyusw" path="res://scenes/world/platform.tscn" id="2_gb53w"]
 [ext_resource type="PackedScene" uid="uid://1pkdo8qb10qs" path="res://scenes/world/map_layout.tscn" id="2_v5dby"]
 [ext_resource type="PackedScene" uid="uid://bko720u2m37w7" path="res://scenes/menus/room_picker.tscn" id="4_bq33v"]
 [ext_resource type="PackedScene" uid="uid://cp3t28vtllldm" path="res://scenes/menus/pause.tscn" id="5_v5dby"]
 [ext_resource type="PackedScene" uid="uid://cfvitsctbmlsd" path="res://scenes/world/startingRoom.tscn" id="6_bq33v"]
 [ext_resource type="PackedScene" uid="uid://dtkqovsopwx8b" path="res://scenes/menus/map_overlay.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://cpos8gwtxheue" path="res://scenes/menus/hud.tscn" id="7_j2gmx"]
+[ext_resource type="PackedScene" uid="uid://orcndrjvhvnk" path="res://scenes/menus/help.tscn" id="9_1yooq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qq27"]
+size = Vector2(377, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb53w"]
+size = Vector2(12, 211)
 
 [sub_resource type="GDScript" id="GDScript_j2gmx"]
 script/source = "extends Area2D
@@ -21,6 +29,136 @@ size = Vector2(20, 49)
 [node name="world" type="Node2D" unique_id=1735737902]
 position = Vector2(0, 530)
 script = ExtResource("1_6m72w")
+
+[node name="floorBoundries" type="Node2D" parent="." unique_id=651271063]
+
+[node name="floorStop 1_1" type="StaticBody2D" parent="floorBoundries" unique_id=788800922]
+position = Vector2(-35, -219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_1" unique_id=613504535]
+position = Vector2(231.5, 31.5)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="floorStop 1_2" type="StaticBody2D" parent="floorBoundries" unique_id=2013571273]
+position = Vector2(-35, -219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_2" unique_id=1815596287]
+position = Vector2(611, 31)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="floorStop 1_3" type="StaticBody2D" parent="floorBoundries" unique_id=1865309771]
+position = Vector2(348, -219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_3" unique_id=803679218]
+position = Vector2(611, 31)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="floorStop 1_4" type="StaticBody2D" parent="floorBoundries" unique_id=1392183025]
+position = Vector2(728, -219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_4" unique_id=1649957179]
+position = Vector2(611, 31)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="floorStop 1_5" type="StaticBody2D" parent="floorBoundries" unique_id=1270504887]
+position = Vector2(1110, -219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_5" unique_id=805866709]
+position = Vector2(611, 31)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="floorStop 1_6" type="StaticBody2D" parent="floorBoundries" unique_id=870675239]
+position = Vector2(1491, -217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floorBoundries/floorStop 1_6" unique_id=1874558780]
+position = Vector2(611, 31)
+shape = SubResource("RectangleShape2D_5qq27")
+
+[node name="wallBoundries" type="Node2D" parent="." unique_id=2141173020]
+
+[node name="wallStopLeft" type="StaticBody2D" parent="wallBoundries" unique_id=790695308]
+position = Vector2(-57, 34)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStopLeft" unique_id=254363372]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 1_1" type="StaticBody2D" parent="wallBoundries" unique_id=713567850]
+position = Vector2(318, -190)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 1_1" unique_id=1883592047]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 1_2" type="StaticBody2D" parent="wallBoundries" unique_id=1732650811]
+position = Vector2(696, -188)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 1_2" unique_id=2124980494]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 1_3" type="StaticBody2D" parent="wallBoundries" unique_id=1151733003]
+position = Vector2(1080, -189)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 1_3" unique_id=1190415644]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 1_4" type="StaticBody2D" parent="wallBoundries" unique_id=584712112]
+position = Vector2(1457, -189)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 1_4" unique_id=1516505734]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 1_5" type="StaticBody2D" parent="wallBoundries" unique_id=1655682815]
+position = Vector2(1842, -190)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 1_5" unique_id=606392313]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 2_1" type="StaticBody2D" parent="wallBoundries" unique_id=380576177]
+position = Vector2(318, 32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 2_1" unique_id=664799207]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 2_2" type="StaticBody2D" parent="wallBoundries" unique_id=1672198434]
+position = Vector2(696, 34)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 2_2" unique_id=2049248332]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 2_3" type="StaticBody2D" parent="wallBoundries" unique_id=593907102]
+position = Vector2(1080, 33)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 2_3" unique_id=994992338]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 2_4" type="StaticBody2D" parent="wallBoundries" unique_id=2010274927]
+position = Vector2(1457, 33)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 2_4" unique_id=1817629494]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop 2_5" type="StaticBody2D" parent="wallBoundries" unique_id=1084217987]
+position = Vector2(1842, 32)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop 2_5" unique_id=1763376636]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
+
+[node name="wallStop boss" type="StaticBody2D" parent="wallBoundries" unique_id=1750564312]
+position = Vector2(2220, 31)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallBoundries/wallStop boss" unique_id=310120701]
+position = Vector2(69, -108.5)
+shape = SubResource("RectangleShape2D_gb53w")
 
 [node name="tempTrigger" type="Area2D" parent="." unique_id=2068558408]
 position = Vector2(-17, -212)
@@ -61,5 +199,27 @@ offset_left = -52.0
 offset_top = -35.0
 offset_right = -52.0
 offset_bottom = -35.0
+
+[node name="help" parent="." unique_id=142010099 instance=ExtResource("9_1yooq")]
+process_mode = 3
+z_index = 20
+
+[node name="platform" parent="." unique_id=334479563 instance=ExtResource("2_gb53w")]
+position = Vector2(194, -137)
+
+[node name="platform2" parent="." unique_id=1957195022 instance=ExtResource("2_gb53w")]
+position = Vector2(575, -134)
+
+[node name="platform3" parent="." unique_id=113159288 instance=ExtResource("2_gb53w")]
+position = Vector2(960, -136)
+
+[node name="platform4" parent="." unique_id=1022569205 instance=ExtResource("2_gb53w")]
+position = Vector2(1340, -131)
+
+[node name="platform5" parent="." unique_id=1254178637 instance=ExtResource("2_gb53w")]
+position = Vector2(1718, -128)
+
+[node name="platform6" parent="." unique_id=2078341174 instance=ExtResource("2_gb53w")]
+position = Vector2(2100, -127)
 
 [connection signal="body_entered" from="tempTrigger" to="." method="_on_temp_trigger_body_entered"]
