@@ -9,20 +9,24 @@ func _on_ready() -> void:
 	unlock()
 
 func _LockLeft(body: Node2D) -> void:
-	print("locking left")
-	lock() # Replace with function body.
+	if body.is_in_group("player"):
+		print("locking left")
+		lock() # Replace with function body.
 
 func _LockRight(body: Node2D) -> void:
-	print("locking right")
-	lock() # Replace with function body.
+	if body.is_in_group("player"):
+		print("locking right")
+		lock() # Replace with function body.
 
 func _UnlockLeft(body: Node2D) -> void:
-	print("unlocking left")
-	unlock() # Replace with function body.
+	if body.is_in_group("player"):
+		print("unlocking left")
+		unlock() # Replace with function body.
 
 func _UnlockRight(body: Node2D) -> void:
-	print("unlocking right")
-	unlock() # Replace with function body.
+	if body.is_in_group("player"):
+		print("unlocking right")
+		unlock() # Replace with function body.
 
 func lock():
 	room_camera.enabled = true

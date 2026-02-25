@@ -6,7 +6,6 @@ var speed: float = 90.0
 var bob_amount: float = 8.0      
 var bob_speed: float = 4.0       
 var health: int = 1
-
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var direction: float = 1.0                # 1 = right, -1 = left
@@ -29,8 +28,8 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		if collider.has_method("take_damage"):
-			collider.take_damage(1, Vector2(direction * 120, -80))
+		if collider.is_in_group("player") and collider.has_method("take_damage"):
+			collider.take_damage(1, Vector2(sign(global_position.x - collider.global_position.x) * 150, -100))
 
 func take_damage(dmg: int, knockback: Vector2) -> void:
 	health -= dmg

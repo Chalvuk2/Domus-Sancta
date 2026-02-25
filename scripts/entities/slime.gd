@@ -7,8 +7,9 @@ var hop_force = -160
 var health = 1
 var hop_interval = 2.0
 var player: Node2D = null
+var detect_radius: float = 250.0
 @onready var hop_timer: Timer = $HopTimer
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	hop_timer.wait_time = hop_interval
@@ -17,12 +18,14 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 func _on_hop_timer_timeout() -> void:
-	if is_on_floor() and player:
+	if is_on_floor() and player and global_position.distance_to(player.global_position) < detect_radius:
 		var dir = sign(player.global_position.x - global_position.x)
 		
-		# Hop up + forward toward player
 		velocity.y = hop_force
 		velocity.x = dir * hop_speed
+		
+		if dir != 0:
+			sprite.flip_h = dir < 0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -34,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		if collider.has_method("take_damage"):
+		if collider.is_in_group("player") and collider.has_method("take_damage"):
 			collider.take_damage(1, Vector2(sign(global_position.x - collider.global_position.x) * 150, -100))
 
 func take_damage(dmg: int, knockback: Vector2) -> void:

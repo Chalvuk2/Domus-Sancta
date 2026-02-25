@@ -8,9 +8,12 @@ var lastDirection = 1.0
 var rolling = false
 var maxHealth=10
 var currentHealth=10
+var is_invincible: bool = false
+var facing_direction: Vector2 = Vector2.RIGHT
+@onready var i_frames_timer: Timer = Timer.new()
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main: CharacterBody2D = $"."
-var facing_direction: Vector2 = Vector2.RIGHT
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -57,7 +60,11 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction * SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
+			if current_weapon:
+				current_weapon.scale.x = -1 if sprite.flip_h else 1
+				current_weapon.position.x = 25 if not sprite.flip_h else -25
 			move_and_slide()
+
 func roll(direction):
 	main.set_collision_mask_value(4, false)
 	sprite.play("roll")
@@ -83,7 +90,15 @@ func jump():
 	else:
 		sprite.play("jump_down")
 
-
+func take_damage(dmg: int, knockback: Vector2) -> void:
+	if is_invincible: return
+	currentHealth -= dmg
+	velocity += knockback
+	$"../HUD".updateHealth()
+	is_invincible = true
+	i_frames_timer.start(0.8)
+	if currentHealth <= 0:
+		queue_free()
 
 # Weapon Logic
 @export var sword_scene: PackedScene
@@ -115,6 +130,9 @@ func equip_weapon(slot: int) -> void:
 
 func _ready() -> void:
 	equip_weapon(0)  # start with sword
+	add_child(i_frames_timer)
+	i_frames_timer.one_shot = true
+	i_frames_timer.timeout.connect(func(): is_invincible = false)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

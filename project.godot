@@ -18,6 +18,7 @@ config/name="DomusSancta"
 run/main_scene="uid://b1bbjjl0n4gr3"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="uid://b1bbjjl0n4gr3"
 
 [input]
 

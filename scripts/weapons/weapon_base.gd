@@ -27,7 +27,6 @@ func attack(direction: Vector2) -> void:
 	if not can_attack or is_attacking: return   
 	is_attacking = true
 	can_attack = false   
-	rotation = direction.angle()
 	anim.play("attack")
 	hitbox.monitoring = true
 	if hitbox.get_child_count() > 0:
