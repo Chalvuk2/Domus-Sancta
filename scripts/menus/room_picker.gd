@@ -85,26 +85,26 @@ func clearButton():
 
 func _on_room_1_pressed() -> void:
 	if enabled:
-		$"..".setRoom("uid://fbkypssd6kr3")
+		$"..".setRoom(1)
 		roomData[0]=true
 		closeRoomPicker()
 
 
 func _on_room_2_pressed() -> void:
 	if enabled:
-		$"..".setRoom("uid://cmd8c4111w311")
+		$"..".setRoom(2)
 		roomData[1]=true
 		closeRoomPicker()
 
 
 func _on_room_3_pressed() -> void:
 	if enabled:
-		$"..".setRoom("uid://dp5xoieoidghl")
+		$"..".setRoom(3)
 		roomData[2]=true
 		closeRoomPicker()
 
 func _on_room_4_pressed() -> void:
 	if enabled:
-		$"..".setRoom("uid://b6ft5enustja3")
+		$"..".setRoom(4)
 		roomData[3]=true
 		closeRoomPicker()

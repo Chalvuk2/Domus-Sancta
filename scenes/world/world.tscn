@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvitsctbmlsd" path="res://scenes/world/startingRoom.tscn" id="6_bq33v"]
 [ext_resource type="PackedScene" uid="uid://dtkqovsopwx8b" path="res://scenes/menus/map_overlay.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://cpos8gwtxheue" path="res://scenes/menus/hud.tscn" id="7_j2gmx"]
+[ext_resource type="PackedScene" uid="uid://orcndrjvhvnk" path="res://scenes/menus/help.tscn" id="9_1yooq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ptc"]
 size = Vector2(20, 49)
@@ -54,5 +55,9 @@ offset_left = -52.0
 offset_top = -35.0
 offset_right = -52.0
 offset_bottom = -35.0
+
+[node name="help" parent="." unique_id=142010099 instance=ExtResource("9_1yooq")]
+process_mode = 3
+z_index = 20
 
 [connection signal="body_entered" from="tempTrigger" to="." method="_on_temp_trigger_body_entered"]
